@@ -1,0 +1,13 @@
+{
+  "name": "jstools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "tailwind-watch": "tailwindcss -i ../static/css/style.css -o ../static/css/output.css --watch",
+    "tailwind-build": "tailwindcss -i ../static/css/style.css -o ../static/css/output.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
