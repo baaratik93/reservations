@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<img src="" alt="">
+<div class="formulaire">
+    <h2>Formulaire de connexion</h2>
+    <form action="{% url 'NewCarSubmit' %}" method="POST" enctype="multipart/form-data">
+        {% for form in formulaire %}
+        <div class="field">{{form.label}}:{{form}}</div>
+        {% endfor%}
+        <input type="submit" value="Connexion">
+        <div class="connect">
+            <span>J'ai pas encore de compte</span>
+            <a href="/connexion/signin">Créez-en un ici</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

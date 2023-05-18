@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage),
     path('cars/', include('cars.urls')),
+    path('connexion/', include('connexion.urls')),
 ]
 # Cette ligne permet d'utiliser les images à partir du dossier media et de localhost
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -50,5 +50,34 @@ input[type="submit"]{
 }
 
 .head{
-    @apply bg-teal-400;
+    @apply sticky -top-2 px-24 py-5 bg-teal-400 flex gap-5 justify-around items-center;
+}
+
+.head > .logo {
+    @apply p-1 flex flex-col justify-center items-center;
+}
+
+.head > .logo > img {
+    @apply rounded-2xl;
+}
+
+.head > .logo > h2 {
+    @apply text-sm font-semibold font-serif ;
+}
+.head > input {
+    @apply rounded-md h-9
+}
+.head > nav {
+    @apply flex-1 flex justify-end gap-5 px-20 py-2;
+  }
+
+.head > a >  button {
+    @apply bg-red-500 p-3 rounded-lg text-[1.2rem];
+}
+
+.connect {
+    @apply my-3;
+}
+.connect > a {
+    @apply text-blue-600;
 }
