@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/output.css" %}">
+    <title>Tigers Booking | {{title}}</title>
+</head>
+
+<body>
+    <div class="head">
+        <a class="logo" href="/">
+            <img src="{% static "images/76665-457-1641395215_db5fe75d0a7dc3b29bb8e4ff5589b24b.jpeg" %}" width="120px" height="120px" alt="logo">
+            <span>Tigers Booking</span>
+        </a>
+        <nav>
+            <a href="/cars">Véhicule</a>
+            <a href="/hotels">Hotels</a>
+            <a href="/hotels">Vols</a>
+        </nav>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <div>
+        <p>Ici le footer</p>
+    </div>
+</body>
+
+</html>

@@ -1,26 +1,16 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "css/output.css" %}">
-    <title>Formulaire véhicule | Nouveau</title>
-</head>
-<body>
-    <div class="main">
-        <img src="" alt="">
-        <div class="formulaire">
-            <h2>Formulaire véhicule | Nouveau</h2>
-            <form action="{% url 'NewCarSubmit' %}" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for f in formulaire%}
-                    <div class="field">{{f.label}}:{{f}}</div>
-                {% endfor %}
-                <input type="submit"  value="Ajouter">
-            </form>
-        </div>
+{% extends '_base.html' %}
+{% block content %}
+<div class="main">
+    <img src="" alt="">
+    <div class="formulaire">
+        <h2>Formulaire véhicule | Nouveau</h2>
+        <form action="{% url 'NewCarSubmit' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for f in formulaire%}
+            <div class="field">{{f.label}}:{{f}}</div>
+            {% endfor %}
+            <input type="submit" value="Ajouter">
+        </form>
     </div>
-</body>
-</html>
+</div>
+{% endblock %}

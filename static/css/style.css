@@ -22,3 +22,33 @@
 input[type="submit"]{
     @apply cursor-pointer bg-green-600 text-white text-lg font-semibold rounded-md px-4 py-1 w-full;
 }
+
+.cars {
+    @apply flex flex-row flex-wrap w-[90%] gap-3  p-52;
+}
+
+.car {
+    @apply shadow-lg w-[200px];
+}
+
+.car > a {
+    @apply bg-blue-500 block text-center shadow-md rounded-md w-full;
+}
+
+.car > span {
+    @apply flex gap-2 my-2 p-2;
+}
+.car > span > a {
+    @apply text-white rounded-lg p-2 shadow-lg;
+}
+.car > span > a:nth-child(1){
+    @apply bg-red-600 ;
+}
+
+.car > span > a:nth-child(2){
+    @apply bg-green-600;
+}
+
+.head{
+    @apply bg-teal-400;
+}

@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.CarHomePage),
     path('new/', views.NewCarSubmit,name='NewCarSubmit'),
-    # path('new/', views.NewCarSubmit,name="nouveau"),
+    path('<int:id>/', views.SingleCar,name='SingleCar'),
+    path('<int:id>/delete', views.DeleteCar,name='SingleCar'),
 ]
