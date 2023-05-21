@@ -4,16 +4,18 @@
 <img src="" alt="">
 <div class="formulaire">
     <h2>Formulaire d'inscription</h2>
-    <form action="{% url 'NewCarSubmit' %}" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'SigninUser' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         {% for form in formulaire %}
         <div class="field">{{form.label}}:{{form}}</div>
         {% endfor%}
         <input type="submit" value="Inscription">
+        <div style="color: brown;">{{error}}</div>
         <div class="connect">
             <span>J'ai déja un compte </span>
             <a href="/connexion/login">Se connecter ici</a>
         </div>
-        
+
     </form>
 </div>
 {% endblock %}

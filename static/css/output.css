@@ -638,7 +638,7 @@ input[type="submit"] {
 }
 
 .car > span > a {
-  border-radius: 0.5rem;
+  border-radius: 0.125rem;
   padding: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));

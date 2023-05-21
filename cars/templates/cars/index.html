@@ -5,9 +5,16 @@
 <div class="cars">
     {% for car in cars %}
     <div class="car">
-        <img src="/media/{{car.5}}" width="200px" alt="photo du véhicule">
-        <a href="/cars/{{car.0}}">Details</a>
+        <a href="/cars/{{car.0}}">
+            <img src="/media/{{car.5}}" width="200px" alt="photo du véhicule">
+            <span>Details</span>
+        </a>
     </div car>
     {%endfor%}
+    {% if jwt%}
+    <script>
+        localStorage.setItem("jwt", "{{jwt}}")
+    </script>
+    {% endif %}
 </div>
 {% endblock %}

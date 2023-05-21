@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from utils.helpers import requete
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from . import forms
 def CarHomePage(request):
     cars= requete("SELECT * FROM vehicule;").fetchall()
-    return render(request, 'cars/index.html',{'cars':cars,'title': 'ACCUEIL VEHICULES'})
+    return render(request, 'cars/index.html',{'cars':cars,'title': 'ACCUEIL VEHICULES','jwt':''})
 
 #Ouverture & Soumission du formulaire d'ajout de véhicule
 def NewCarSubmit(request):
@@ -18,7 +18,7 @@ def NewCarSubmit(request):
         modele = request.POST['modele']
         prix_par_jour = request.POST['prix_par_jour']
         #L'identifiant de l'administrateur connecté
-        id_admin = 1
+        id_admin = 2
         photo = request.FILES['photo']
         path = default_storage.save(photo, ContentFile(photo.read()))
         vehicule = (marque,modele,prix_par_jour,id_admin,path)
