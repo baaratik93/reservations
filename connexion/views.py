@@ -1,8 +1,8 @@
-from django.shortcuts import render,redirect
-from django.http import HttpRequest
+from django.shortcuts import render, redirect
+from django.http import HttpRequest, HttpResponse
 from . import forms
 from django.conf import settings
-from utils.helpers import requete,crypter_mot_de_passe,coder_jwt,decoder_jwt,verifier_mot_de_passe
+from utils.helpers import requete, crypter_mot_de_passe, coder_jwt,decoder_jwt, verifier_mot_de_passe
 
 # Create your views here.
 def LoginUser(request):
@@ -10,15 +10,18 @@ def LoginUser(request):
         users = requete("SELECT * FROM utilisateur")
         ExistLogin = False
         for user in users.fetchall():
-            print(user)
             if user[5] == request.POST['login']:
                 ExistLogin = True
                 if verifier_mot_de_passe(request.POST['password'], user[6]):
                     jwt = coder_jwt({'id_utilisateur':user[0],'login':user[5],'role':user[7]})
-                    print(jwt)
+                    request.session['user'] = user
+                    request.session['jwt'] = jwt
+                    request.session.save()
                     cars= requete("SELECT * FROM vehicule;").fetchall()
-                    # return redirect('/cars/',{'cars':cars, 'jwt':jwt})
-                    return render(request, 'cars/index.html',{'cars':cars,'title': 'ACCUEIL VEHICULES','jwt':jwt})
+                    if user[7] == 'admin':
+                        return render(request,'dashboard.html')
+                    else:
+                        return render(request, 'cars/index.html',{'cars':cars,'title': 'ACCUEIL VEHICULES'})
                 else:
                     return render(request, 'connexion/login.html', {'formulaire': forms.LoginForm(),'title': 'Connexion utilisateur','error':'Mot de passe incorrect'})
         if not ExistLogin:
@@ -66,11 +69,15 @@ def SigninUser(request):
 
                 """.format(user)
                 requete(sql)
+                return redirect('/connexion/login')
         else:
             return render(request, 'connexion/signin.html', {'formulaire': forms.SigninForm(),'title': 'Inscription utilisateur','error':'Les mots de passent ne correspondent pas'})
-        
     return render(request, 'connexion/signin.html', {'formulaire': forms.SigninForm(),'title': 'Inscription utilisateur'})
 
 def index(request):
-    redirect()
-    return render(request,'connexion/login.html')
+    return redirect('/connexion/login')
+
+
+def Disconnect(request):
+    request.session.flush()
+    return redirect('/connexion/login')

@@ -1,0 +1,28 @@
+{% extends '_base.html' %} {% block content %}
+<div class="main">
+    <h1>Valider réservation</h1>
+
+<table cellspadding="2" border="3">
+    {% for r in request.session.reserved %}
+        <tr>
+            <td>{{r.marque}}</td>
+            <td>{{r.modele}}</td>
+            <td>{{r.prix}}</td>
+            <td><img src="/media/{{r.image}}" alt="" width="120px"></td>
+        </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="2">TOTAL</td>
+        <td>
+           {{total_prix}}
+        </td>
+    </tr>
+</table>
+    <div style="padding: 3% 30%;">
+        {% for f in forms%}
+            <div class="field">{{f.label}}:{{f}}</div>
+        {% endfor %}
+        <button style="width: 100%;background:orange;padding:1%;border-radius:30px">Payer la réservation</button>
+    </div>
+</div>
+{% endblock %}

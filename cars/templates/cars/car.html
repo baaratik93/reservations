@@ -5,9 +5,14 @@
     <div>Marque: {{car.1}} </div>
     <div>Modèle: {{car.2}} </div>
     <div>Prix: {{car.3}} </div>
-    <span>
-        <a href="/cars/{{car.0}}/delete">Supprimer</a>
-        <a href="/cars/{{car.0}}/edit">Modifier</a>
-    </span>
+    {% if request.session.user.7 == 'admin' %}
+        <span>
+            <a href="/cars/{{car.0}}/delete">Supprimer</a>
+            <a href="/cars/{{car.0}}/edit">Modifier</a>
+        </span>
+    {% else %}
+    <!-- Utiliser le middlewares d'authentification pour forcer l'utilisateur à se connecter avant de reserver -->
+            <a href="/cars/{{car.0}}/reserver">Ajouter à la réservation</a>
+    {% endif %}
 </div car>
 {% endblock %}

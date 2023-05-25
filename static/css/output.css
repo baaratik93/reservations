@@ -530,6 +530,18 @@ video {
   display: block;
 }
 
+.inline {
+  display: inline;
+}
+
+.table {
+  display: table;
+}
+
+.border {
+  border-width: 1px;
+}
+
 .main {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -723,4 +735,18 @@ input[type="submit"] {
 .connect > a {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.connexion > a {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+}
+
+table {
+  width: 100%;
 }
