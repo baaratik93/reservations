@@ -1,2 +1,5 @@
 jstools/node_modules
 reservations/settings.py
+analyse.mdj
+database.sql
+db.sqlite3
