@@ -1,20 +1,5 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<img src="" alt="">
-<div class="formulaire">
-    <h2>Formulaire de connexion</h2>
-    <form action="{% url 'LoginUser' %}" method="POST" enctype="multipart/form-data">
-        {% csrf_token %} 
-        {% for form in formulaire %}
-        <div class="field">{{form.label}}:{{form}}</div>
-        {% endfor%}
-        <div style="color: brown;">{{ error }}</div>
-        <input type="submit" value="Connexion">
-        <div class="connect">
-            <span>J'ai pas encore de compte</span>
-            <a href="/connexion/signin">Créez-en un ici</a>
-        </div>
-    </form>
-</div>
+    {% include "forms/_loginForm.html" %}
 {% endblock %}

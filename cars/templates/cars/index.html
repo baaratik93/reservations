@@ -1,26 +1,23 @@
 {% extends '_base.html' %}
+{%load static%}
 {% block content %}
-<h1>All Cars</h1>
-<div class="cars">
-    {% for car in cars %}
-    <div class="car">
-        <a href="/cars/{{car.0}}">
-            <img src="/media/{{car.5}}" width="200px" alt="photo du véhicule">
-            <span>Details</span>
-                <div>
-                    <button>
-                        <a href="/cars/{{car.0}}/reserver">
-                            Ajouter à la reservation
-                        </a>
-                    </button>
-                </div>
-        </a>
-    </div car>
-    {%endfor%}
-    {% if jwt%}
-    <script>
-        localStorage.setItem("jwt", "{{jwt}}")
-    </script>
-    {% endif %}
+<div class="container">
+    <div class="cars">
+        {% for car in cars %}
+        <div class="shadow-lg flex justify-around flex-col w-[300px] h-[350px]">
+            <a href="/cars/{{car.0}}">
+                <img src="/media/{{car.5}}" width="300px" height="300px" alt="photo du véhicule">
+                <a href="/cars/{{car.0}}/reserver" style="background-color: rgb(222, 61, 131);" class="w-2/3 bg-info-500 text-white rounded-lg mb-5 mt-2 pt-2 pb-2 px-2 mx-auto">
+                    Ajouter à la reservation
+                </a>
+            </a>
+        </div>
+        {%endfor%}
+        {% if jwt%}
+        <script>
+            localStorage.setItem("jwt", "{{jwt}}")
+        </script>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

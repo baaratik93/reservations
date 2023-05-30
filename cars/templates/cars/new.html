@@ -1,15 +1,18 @@
 {% extends '_base.html' %}
 {% block content %}
-<div class="main">
+<div class="h-screen mx-auto pt-36 grid">
     <img src="" alt="">
-    <div class="formulaire">
+    <div>
         <h2>Formulaire véhicule | Nouveau</h2>
         <form action="{% url 'NewCarSubmit' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% for f in formulaire%}
-            <div class="field">{{f.label}}:{{f}}</div>
+            <div class="field">
+                <span class="label">{{f.label}}</span>
+                <span class="input">{{f}}</span>
+            </div>
             {% endfor %}
-            <input type="submit" value="Ajouter">
+            <input type="submit" class="w-full leading-tight shadow-lg bg-primary rounded-full text-[2rem]" value="Ajouter">
         </form>
     </div>
 </div>

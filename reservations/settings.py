@@ -131,9 +131,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+    # BASE_DIR.parent / "jstools",
 ]
 
 # Default primary key field type
@@ -144,10 +146,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # BASE_DIR = Path(__file__).resolve().parent
 
 UTILS = '/utils'
-
+TE_URL = '/jstools'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
+TE_ROOT=os.path.join(BASE_DIR,"jstools")
 
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 

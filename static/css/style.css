@@ -2,58 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-.main {
+/* .main {
     @apply text-gray-500 shadow-md mx-10;
-}
+} */
 
 /* .formulaire {
     @apply shadow-lg bg-blue-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-[100px];
 } */
 
-.formulaire {
-    @apply shadow-lg bg-blue-100 absolute top-[60%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-[50px];
-}
 
 .field {
-    @apply w-full items-center flex gap-2 bg-blue-200 my-3 rounded-lg overflow-hidden m-2;
+    @apply py-[5px] px-1 my-4 h-12 w-full bg-blue-300 flex rounded-lg overflow-hidden;
 }
 
-.field input {
-    @apply flex-1 text-center text-black outline-none h-[40px];
+.label {
+@apply p-[.3rem] text-sm w-1/4 bg-blue-300 grid items-center justify-center;
 }
 
-input[type="submit"]{
-    @apply cursor-pointer bg-green-600 text-white text-lg font-semibold rounded-md px-4 py-1 w-full;
+.input{
+    @apply grid w-3/4  outline-none;
 }
 
+.container {
+    @apply w-full mx-auto h-auto  py-[5%]  sm:!px-0 xs:!px-0;
+}
 .cars {
-    @apply flex flex-row flex-wrap justify-center items-center gap-3 p-24;
+    @apply flex flex-row flex-wrap justify-between gap-[40px] items-center;
 }
 
-.car {
-    @apply shadow-lg w-[200px];
-}
-
-.car > a {
-    @apply bg-blue-500 block text-center shadow-md rounded-md w-full;
-}
-
-.car > span {
-    @apply flex gap-2 my-2 p-2;
-}
-.car > span > a {
-    @apply text-white rounded-sm p-2 shadow-lg;
-}
-.car > span > a:nth-child(1){
-    @apply bg-red-600 ;
-}
-
-.car > span > a:nth-child(2){
-    @apply bg-green-600;
-}
 
 .head{
-    @apply sticky -top-2 px-24 py-5 bg-teal-400 flex gap-5 justify-around items-center;
+    @apply sticky -top-2 px-[15%] py-5 bg-teal-400 flex gap-5 justify-around items-center;
 }
 
 .head > .logo {
@@ -89,6 +68,12 @@ input[type="submit"]{
     @apply bg-gray-200 p-2 rounded-md my-2 flex;
 }
 
-table {
-    @apply w-full;
+
+
+header {
+    @apply flex flex-row flex-wrap;
+}
+
+header > img {
+   @apply min-w-min rounded-lg;
 }

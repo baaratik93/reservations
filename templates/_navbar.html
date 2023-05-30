@@ -1,0 +1,218 @@
+<!-- Main navigation container -->
+<nav
+  class="flex-no-wrap fixed z-10 flex w-full items-center justify-between bg-neutral-100 py-5 px-[15%] shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4"
+  data-te-navbar-ref>
+  <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <!-- Hamburger button for mobile view -->
+    <button
+      class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+      type="button"
+      data-te-collapse-init
+      data-te-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <!-- Hamburger icon -->
+      <span class="[&>svg]:w-7">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="h-7 w-7">
+          <path
+            fill-rule="evenodd"
+            d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+            clip-rule="evenodd" />
+        </svg>
+      </span>
+    </button>
+
+    <!-- Collapsible navigation container -->
+    <div
+      class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+      id="navbarSupportedContent1"
+      data-te-collapse-item>
+      <!-- Logo -->
+      <a
+        class="mb-4 mt-3 mr-[200px] flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+        href="/">
+        <!-- <img
+          src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp"
+          /> -->
+          <img style="height: 50px"
+          alt="logo"
+          loading="lazy"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAOhJREFUSEvFlcERgjAQRXevWISSBtSOtAHGUoQGtCRsALEIc10HhoQJ2WQSMMCR+cn7P9nsIiT+MPH+sB2gyYoaEI9BCQlqIcszp2UTvHe3CwE9gjYfRAh4zb/353QNC2iyogXEfS8maIUscxdMm3HoLADn3uVOQZUhTmcBDPdqhwUpDIDv7OemMACs+4UpNCCkcuak0ACv+5h6nVReIgB9hKwOHWu9I+po/kseXXEnNj44U7dumTpT0Dz3xh2o2MlbhZVigXs2Qfcz5NHZbTmiXQ8pIgYOvYSsTsEDJ/bh+vTbzeR/pfgBFo/KGSSwEdYAAAAASUVORK5CYII="/>
+          <span class="text-[1rem] font-bold font-body">
+            <span class="text-gray-500">TIGERS</span>
+            <span>BOOKING</span>
+        </a>
+      <!-- Left navigation links -->
+      <ul
+        class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
+        data-te-navbar-nav-ref>
+        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+          <!-- Dashboard link -->
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+            href="/cars"
+            data-te-nav-link-ref
+            >Véhicules</a
+          >
+        </li>
+        <!-- Team link -->
+        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="/vols"
+            data-te-nav-link-ref
+            >Vols</a
+          >
+        </li>
+        <!-- Projects link -->
+        <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+          <a
+            class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+            href="#"
+            data-te-nav-link-ref
+            >Hotels</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Right elements -->
+    <div class="relative flex items-center">
+
+      <!-- Container with two dropdown menus -->
+      <div class="relative" data-te-dropdown-ref>
+        <!-- First dropdown trigger -->
+        {% if request.session.reserved %}
+
+        <a
+          class="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+          href="#"
+          id="dropdownMenuButton1"
+          role="button"
+          data-te-dropdown-toggle-ref
+          aria-expanded="false">
+          <!-- Dropdown trigger icon -->
+          <span class="[&>svg]:w-5">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="h-5 w-5">
+            <path
+              d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+          </svg>
+          </span>
+          <!-- Notification counter -->
+          <span
+            class="absolute -mt-2.5 ml-2 rounded-[0.37rem] bg-danger px-[0.45em] py-[0.2em] text-[0.6rem] leading-none text-white"
+            >{{ request.session.reserved | length}}</span
+          >
+        </a>
+            
+        {% endif %}
+        <!-- First dropdown menu -->
+        <ul
+          class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+          aria-labelledby="dropdownMenuButton1"
+          data-te-dropdown-menu-ref>
+          <!-- First dropdown menu items -->
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="/reserver"
+              data-te-dropdown-item-ref
+              >Voir détails</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="#"
+              data-te-dropdown-item-ref
+              >Annuler la réservation</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Second dropdown container -->
+      <div class="relative" data-te-dropdown-ref>
+        <!-- Second dropdown trigger -->
+        <a
+          class="hidden-arrow flex items-center whitespace-nowrap transition duration-150 ease-in-out motion-reduce:transition-none"
+          href="#"
+          id="dropdownMenuButton2"
+          role="button"
+          data-te-dropdown-toggle-ref
+          aria-expanded="false">
+          <!-- User avatar -->
+          {% if request.session.user %}
+          <img
+          src="https://media.graphassets.com/wk5t157YT3yeqTW7vq8c"
+          class="rounded-full"
+          style="height: 35px; width: 35px"
+          alt=""
+          loading="lazy" />
+          {% else %}
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(230, 17, 21, 1);transform: ;msFilter:;"><path d="M5.002 21h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2h-14c-1.103 0-2 .897-2 2v6.001H10V7l6 5-6 5v-3.999H3.002V19c0 1.103.897 2 2 2z"></path></svg>
+          {% endif %}
+          
+        </a>
+        <!-- Second dropdown menu -->
+        <ul
+          class="absolute left-auto right-0 z-[1000] float-left m-0 mt-1 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+          aria-labelledby="dropdownMenuButton2"
+          data-te-dropdown-menu-ref>
+          <!-- Second dropdown menu items -->
+          {% if request.session.user %}
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="#"
+              data-te-dropdown-item-ref
+              >{{ request.session.user.1 }} {{ request.session.user.2 }}</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="#"
+              data-te-dropdown-item-ref
+              >Modifier mon profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-bold text-blue-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="/connexion/deconnexion"
+              data-te-dropdown-item-ref
+              >{{request.session.user.7}}</a
+            >
+          </li>
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="/connexion/deconnexion"
+              data-te-dropdown-item-ref
+              >Déconnexion</a
+            >
+          </li>
+          {% else %}
+          <li>
+            <a
+              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+              href="/connexion/login"
+              data-te-dropdown-item-ref
+              >Se connecter</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

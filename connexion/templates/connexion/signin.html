@@ -1,8 +1,11 @@
 {% extends '_base.html' %}
 
 {% block content %}
-<img src="" alt="">
-<div class="formulaire">
+<div class="container flex flex-row">
+    {% include "forms/_signinForm.html" %}
+</div>
+<!-- <img src="" alt=""> -->
+<!-- <div class="formulaire">
     <h2>Formulaire d'inscription</h2>
     <form action="{% url 'SigninUser' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -17,5 +20,5 @@
         </div>
 
     </form>
-</div>
+</div> -->
 {% endblock %}

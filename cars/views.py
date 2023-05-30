@@ -29,7 +29,6 @@ def CarHomePage(request):
 
 #Ouverture & Soumission du formulaire d'ajout de véhicule
 def NewCarSubmit(request):
-    print(request.session['user'][7])
     if 'jwt' not in request.session:
         return redirect('/connexion/login')
     if request.session['user'][7] != 'admin':

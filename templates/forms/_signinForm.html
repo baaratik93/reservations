@@ -1,0 +1,46 @@
+    <div class="h-full">
+      <div
+        class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+        <!-- Left column container with background-->
+        <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+            class="w-full"
+            alt="Phone image" />
+        </div>
+  
+        <!-- Right column container with form -->
+        <div class="md:w-8/12 lg:ml-6 lg:w-5/12 sm:mt-10" >
+          <p class="text-left h1 font-bold mb-5 mx-1 md:mx-4 mt-4 text-[3rem]">Inscription</p>
+          <form action="{% url 'SigninUser' %}" method="POST" enctype="multipart/form-data">
+            <!-- Email input -->
+            {% csrf_token %}
+            {% for form in formulaire %}
+            <div class="field">
+                <span class="label">{{form.label}}:</span>
+                <span class="input">{{form}}</span>
+            </div>
+            {% endfor%}
+            <div class="mb-6 flex items-center justify-center gap-2">
+              <span class="">J'ai déja un compte, me connecter </span>
+              <a
+                href="/connexion/login"
+                class="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+                >
+                ici
+              </a
+              >
+            </div>
+            <!-- Error Message -->
+            <span class="text-red-500 my-6">{{error}}</span>
+            <!-- Submit button -->
+            <button
+              type="submit"
+              class="block w-1/2 mx-auto rounded-lg bg-green-500 px-7 pb-2.5 pt-3 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] "
+              >
+              Inscription
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>

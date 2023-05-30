@@ -1,26 +1,45 @@
 {% extends '_base.html' %} {% block content %}
-<div class="main">
-    <h1>Valider réservation</h1>
+<div class="w-full h-screen px-5 py-10 font-semibold">
+    <p class="py-[2rem] text-[2rem] underline">Valider réservation</p>
 
-<table cellspadding="2" border="3">
-    {% for r in request.session.reserved %}
-        <tr>
-            <td>{{r.marque}}</td>
-            <td>{{r.modele}}</td>
-            <td>{{r.prix}}</td>
-            <td><img src="/media/{{r.image}}" alt="" width="120px"></td>
-        </tr>
-    {% endfor %}
-    <tr>
-        <td colspan="2">TOTAL</td>
-        <td>
-           {{total_prix}}
-        </td>
-    </tr>
-</table>
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                <div class="overflow-hidden">
+                    <table class="min-w-full text-center text-sm font-light">
+                        <thead
+                            class="border-b bg-neutral-800 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
+                            <tr>
+                                <th scope="col" class=" px-6 py-4">Marque</th>
+                                <th scope="col" class=" px-6 py-4">Modèle</th>
+                                <th scope="col" class=" px-6 py-4">Prix / Jour</th>
+                                <th scope="col" class=" px-6 py-4">Image du véhicule</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for r in request.session.reserved %}
+                            <tr class="border-b dark:border-neutral-500">
+                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.marque}}</td>
+                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.modele}}</td>
+                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.prix}}</td>
+                                <td class="class="whitespace-nowrap  px-6 py-4"><img src="/media/{{r.image}}" alt="" width="120px"></td>
+                            </tr>
+                            {% endfor %}
+                            <tr class="border-b dark:border-neutral-500">
+                                <td colspan="2" class="whitespace-nowrap  px-6 py-4">
+                                    TOTAL PAR JOUR
+                                </td>
+                                <td class="whitespace-nowrap  px-6 py-4">{{total_prix}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
     <div style="padding: 3% 30%;">
         {% for f in forms%}
-            <div class="field">{{f.label}}:{{f}}</div>
+        <div class="field">{{f.label}}:{{f}}</div>
         {% endfor %}
         <button style="width: 100%;background:orange;padding:1%;border-radius:30px">Payer la réservation</button>
     </div>
