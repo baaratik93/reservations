@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'reservations',
+    # 'reservations',
     'cars',
     'vols',
     'hotels',
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "fisrt_projet.urls"
+# ROOT_URLCONF = "fisrt_projet.urls"
 
 TEMPLATES = [
     {
@@ -87,9 +87,7 @@ WSGI_APPLICATION = "fisrt_projet.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "djangodb_test",
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "djangodb",
+        "NAME": "reservations_djangodb",
         "USER": "phpmyadmin",
         "PASSWORD": "Wizzle21#",
         "HOST": "localhost",

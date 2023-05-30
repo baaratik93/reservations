@@ -10,7 +10,7 @@ import requests
 import json
 import random
 from django.http import JsonResponse
-
+from faker import Faker
 
 def CarHomePage(request):
     with connection.cursor() as cursor:
