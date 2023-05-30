@@ -1,6 +1,5 @@
-  <div class="h-full pt-[10%]">
       <div
-        class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+        class="flex absolute top-[20%] flex-wrap items-center justify-center lg:justify-between">
         <!-- Left column container with background-->
         <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
           <img
@@ -12,7 +11,7 @@
         <!-- Right column container with form -->
         <div class="md:w-8/12 lg:ml-6 lg:w-5/12 sm:mt-10" >
 
-          <p class="text-left h1 font-bold mb-5 mx-1 md:mx-4 mt-4 text-[3rem]">Connexion</p>
+          <p class="text-left h1 font-bold mb-5 mx-1 md:mx-4 text-[3rem]">Connexion</p>
             <form action="{% url 'LoginUser' %}" method="POST" enctype="multipart/form-data">
             <!-- Email input -->
             {% csrf_token %}
@@ -42,4 +41,3 @@
           </form>
         </div>
       </div>
-  </div>
