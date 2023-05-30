@@ -1,5 +1,8 @@
 from django.core.management.base import BaseCommand
-from reservations.views import CREATE_volTable, CREATE_hotelTable, CREATE_carTable
+from hotels.views import CREATE_hotelTable
+from cars.views import CREATE_carTable
+from vols.views import CREATE_volTable
+
 
 
 class Command(BaseCommand):
