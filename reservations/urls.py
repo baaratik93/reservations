@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.HomePage),
     path('reserver/', views.AddReservation),
+    path('payement/', views.Payement,name='payement'),
     path('cars/', include('cars.urls')),
     path('connexion/', include('connexion.urls')),
 ]

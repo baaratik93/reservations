@@ -19,10 +19,11 @@
                         <tbody>
                             {% for r in request.session.reserved %}
                             <tr class="border-b dark:border-neutral-500">
-                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.marque}}</td>
-                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.modele}}</td>
-                                <td class="class="whitespace-nowrap  px-6 py-4">{{r.prix}}</td>
-                                <td class="class="whitespace-nowrap  px-6 py-4"><img src="/media/{{r.image}}" alt="" width="120px"></td>
+                                <td class="class=" whitespace-nowrap px-6 py-4">{{r.marque}}</td>
+                                <td class="class=" whitespace-nowrap px-6 py-4">{{r.modele}}</td>
+                                <td class="class=" whitespace-nowrap px-6 py-4">{{r.prix}}</td>
+                                <td class="class=" whitespace-nowrap px-6 py-4"><img src="/media/{{r.image}}" alt=""
+                                        width="120px"></td>
                             </tr>
                             {% endfor %}
                             <tr class="border-b dark:border-neutral-500">
@@ -38,10 +39,29 @@
         </div>
     </div>
     <div style="padding: 3% 30%;">
-        {% for f in forms%}
-        <div class="field">{{f.label}}:{{f}}</div>
-        {% endfor %}
-        <button style="width: 100%;background:orange;padding:1%;border-radius:30px">Payer la réservation</button>
+        <form action="{% url 'payement' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for f in forms %}
+            <div class="field">
+                <span class="label">
+                    {{f.label}}
+                </span>
+                <span class="input">
+                    {{f}}
+                </span>
+            </div>
+            {% endfor %}
+            <div class="field">
+                <span class="label">Net / Jour</span>
+                <input type="number" name="prix"  class="input" value="{{ total_prix }}" required id="prix" autocompleted>
+            </div>
+            <button type="submit" style="width: 100%;background:orange;padding:1%;border-radius:30px">
+                <!-- <a href="/payement" class="grid justify-center"> -->
+                Payer la réservation
+                <!-- </a> -->
+            </button>
+            <!-- {{request.session.reserved}} -->
+        </form>
     </div>
 </div>
 {% endblock %}

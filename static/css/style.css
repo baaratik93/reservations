@@ -23,6 +23,10 @@
     @apply grid w-3/4  outline-none;
 }
 
+.input input {
+    @apply text-center;
+}
+
 .container {
     @apply w-full mx-auto h-auto  py-[5%]  sm:!px-0 xs:!px-0;
 }

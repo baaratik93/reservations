@@ -86,7 +86,7 @@ def ReserverCar(request,id,*args,**kwargs):
     cars= requete("SELECT * FROM vehicule;").fetchall()
     for car in cars:
         if car[0] == id:
-            dictCar = {'marque': car[1], 'modele':car[2], 'prix':car[3],'image': car[5]}
+            dictCar = {'id': car[0],'marque': car[1], 'modele':car[2], 'prix':car[3],'image': car[5]}
             if 'reserved' in request.session:
                 request.session['reserved'].append(dictCar)
             else:

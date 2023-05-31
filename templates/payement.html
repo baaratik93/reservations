@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+
+{% block content %}
+    <div class="flex flex-col mx-auto justify-center">
+        <p class="text-4rem font-bold color-red-400" >Payement de la réservation</p>
+    <form action="{% url 'payement' %} method="POST" enctype="multipart/form-data">
+        <div class="field">
+            <span class="label">Prénom</span>
+            <input type="text" class="input" name="prenom" disabled value="{{request.session.user.1}}">
+        </div>
+        <div class="field">
+            <span class="label">Nom</span>
+            <input type="text" class="input" name="nom" disabled value="{{request.session.user.2}}">
+        </div>
+        <div class="field">
+            <span class="label">Téléphone</span>
+            <input type="text" class="input" name="telephone" disabled value="{{request.session.user.3}}">
+        </div>
+        <div class="field">
+            <span class="label">DU</span>
+            <span class="input"><input type="text" value="{{debut|date:'D d M Y'}}"></span>
+        </div>
+        <div class="field">
+            <span class="label">AU</span>
+            <span class="input"><input type="text" value="{{retour|date:'D d M Y'}}"></span>
+        </div>
+        <div class="field">
+            <span class="label">NET A PAYER</span>
+            <span class="input"><input type="number" value="{{prix_par_jour}}"></span>
+        </div>
+        <div class="field">
+            <span class="label">
+                Type de paiement
+            </span>
+            <span class="input">
+                <select name="" id="typepayement">
+                    <option value="1">Orange Money</option>
+                    <option value="2">Wave</option>
+                    <option value="3">Free MasterCard</option>
+                </select>
+            </span>
+        </div>
+    </form>
+    </div>
+{% endblock  %}

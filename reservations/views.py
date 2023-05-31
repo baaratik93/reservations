@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.http import HttpResponse
+
 from . import forms
 
 def HomePage(request):
@@ -7,6 +9,12 @@ def HomePage(request):
 def AddReservation(request):
     total_prix = sum([r['prix'] for r in request.session['reserved']])
     return render(request, 'reservation.html',{'title': "RESERVATION",'total_prix':total_prix,'forms':forms.ReservationForm})
+
+def Payement(request):
+    if request.method == 'POST':
+        # print(request.POST['date_de_retour'])
+        return render(request, 'payement.html', {'debut': request.POST['date_de_recuperation'],'retour': request.POST['date_de_retour'],'prix_par_jour': request.POST['prix']})
+    return render(request,'payement.html',{})
 # BEGIN TRANSACTION;
 
 # WITH reser AS (

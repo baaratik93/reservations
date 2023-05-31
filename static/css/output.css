@@ -719,6 +719,10 @@ video {
   top: 13px;
 }
 
+.top-\[20\%\] {
+  top: 20%;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -2253,10 +2257,6 @@ video {
   padding-top: 0.37rem;
 }
 
-.pt-\[10\%\] {
-  padding-top: 10%;
-}
-
 .pt-\[7\%\] {
   padding-top: 7%;
 }
@@ -2926,6 +2926,10 @@ video {
   width: 75%;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.input input {
+  text-align: center;
 }
 
 .container {
