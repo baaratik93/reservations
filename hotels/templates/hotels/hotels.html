@@ -1,13 +1,12 @@
 {% extends '_base.html' %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endcomment %}
 {% block content %}
-    {% for car in cars %}
-        <div class="car">
-            <img src="{{car.5}}" width="200px" alt="photo du véhicule">
-            <div>Marque: {{car.1}} </div>
-            <div>Modèle: {{car.2}} </div>
-            <div>Année: {{car.3}} </div>
-            <div>Prix_journée: {{car.4}}</div>
+    {% for hotel in hotels %}
+        <div class="hotel">
+            <img src="{{hotel.5}}" width="200px" alt="photo du véhicule">
+            <div>Marque: {{hotel.1}} </div>
+            <div>Modèle: {{hotel.2}} </div>
+            <div>Année: {{hotel.3}} </div>
+            <div>Prix_journée: {{hotel.4}}</div>
             {% comment %} <div>Prix_journée: {{car.4}}</div> {% endcomment %}
             {% comment %} {% if request.session.user.7 == 'admin' %}
                 <span>

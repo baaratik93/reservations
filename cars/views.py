@@ -15,7 +15,7 @@ from faker import Faker
 def CarHomePage(request):
     with connection.cursor() as cursor:
         # Exécution de la requête SQL
-        cursor.execute("SELECT * FROM vehicule;")
+        cursor.execute("SELECT * FROM cars;")
         # columns = [col[0] for col in cursor.description]
         # cars = [
         #     dict(zip(columns, row))
@@ -110,14 +110,14 @@ CAR_BRANDS = ['Toyota', 'Honda', 'Ford', 'Chevrolet', 'BMW', 'Mercedes-Benz', 'A
 
 image_corres = [
     {'name': 'Audi', 'url': 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=731&q=80'},
-    {'name': 'BMW', 'url': 'https://unsplash.com/fr/photos/Y8-H19uSx-Y'},
-    {'name': 'Honda', 'url': 'https://unsplash.com/fr/photos/O7WzqmeYoqc'},
-    {'name': 'Toyota', 'url': 'https://unsplash.com/fr/photos/AICttBivH5w'},
-    {'name': 'Ford', 'url': 'https://unsplash.com/fr/photos/a4S6KUuLeoM'},
+    {'name': 'BMW', 'url': 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'},
+    {'name': 'Honda', 'url': 'https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80'},
+    {'name': 'Toyota', 'url': 'https://images.unsplash.com/photo-1614491001156-427a045f94f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'},
+    {'name': 'Ford', 'url': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'},
     {'name': 'Chevrolet', 'url': 'https://images.unsplash.com/photo-1590510655579-26ceebea7986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=747&q=80'},
     {'name': 'Mercedes-Benz', 'url': 'https://images.unsplash.com/photo-1622551997608-400d763b0f64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80'},
     {'name': 'Nissan', 'url': 'https://images.unsplash.com/photo-1581540222194-0def2dda95b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'},
-    {'name': 'Lamborghini', 'url': 'https://unsplash.com/fr/photos/pRlbr85Jvqw'}
+    {'name': 'Lamborghini', 'url': 'https://images.unsplash.com/photo-1630312465536-5c6b1f76dc3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80'}
 ]
 
 
@@ -176,3 +176,13 @@ def CREATE_carTable():
                         ''',values)
     except ResponseError as error:
       raise error
+
+
+def get_cars(request):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT * FROM reservations_Car;
+                       ''')
+        cars = cursor.fetchall()
+        # print(cars)
+    return render(request, "cars/car.html/", {'cars':cars})

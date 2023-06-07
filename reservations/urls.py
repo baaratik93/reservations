@@ -24,15 +24,17 @@ urlpatterns = [
     path('', views.HomePage),
     path('reserver/', views.AddReservation),
     path('cars/', include('cars.urls')),
+    # path('hotels/', include('hotels.urls')),
+    # path('vols/', include('vols.urls')),
     path('connexion/', include('connexion.urls')),
 ]
 # Cette ligne permet d'utiliser les images à partir du dossier media et de localhost
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    import debug_toolbar
+# if settings.DEBUG:
+#     import debug_toolbar
     
-    urlpatterns = [
-        # ...
-        path('__debug__/', include('debug_toolbar.urls')),
-    ] + urlpatterns
+#     urlpatterns = [
+#         # ...
+#         path('__debug__/', include('debug_toolbar.urls')),
+#     ] + urlpatterns

@@ -78,3 +78,12 @@ def CREATE_hotelTable():
         cursor.execute('''
         INSERT INTO reservations_Hotel(nom, chambre, description, capacite, adresse, ville, pays, image_url) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
                     ''', values)
+
+def get_hotel(request):
+    with connection.cursor() as cursor:
+        cursor.execute('''
+            SELECT * from reservations_Hotel;
+                       ''')
+        hotels = cursor.fetchall()
+    return render(request, 'hotels/hotels.html')
+            
